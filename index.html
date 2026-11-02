@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Try a trade before you commit. Explore 90-minute hands-on experiences in electrical installation, plumbing and heating, and carpentry.">
+<title>NextSkill Academy — Find your next skill</title>
+<style>
+:root{--bg:#101512;--panel:#19211c;--panel2:#202b24;--text:#f3f5ef;--muted:#b5c0b7;--line:#354239;--lime:#c7f36b;--orange:#ff9d65;--blue:#82c9ff;--shadow:0 20px 60px #0005;--radius:22px}
+[data-theme="light"]{--bg:#f5f6f0;--panel:#fff;--panel2:#e9eee5;--text:#172019;--muted:#5e6b61;--line:#d8e0d6;--lime:#426d12;--orange:#a94c1c;--blue:#17679a;--shadow:0 18px 45px #21301b12}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+.nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.navin{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:900;letter-spacing:-.06em;font-size:1.3rem}
+.brand span{color:var(--lime)}
+.navlinks{display:flex;gap:25px;align-items:center;font-size:.92rem;color:var(--muted)}
+.navlinks a:hover{color:var(--text)}
+.navactions{display:flex;gap:10px;align-items:center}
+.themebtn,.menuBtn{background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:999px;padding:10px 13px}
+.menuBtn{display:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:14px 21px;background:var(--lime);color:#14200d;font-weight:850;transition:.2s transform,.2s filter}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.btn.secondary{background:transparent;border:1px solid var(--line);color:var(--text)}
+.eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:.72rem;font-weight:850;color:var(--lime)}
+.hero{padding:82px 0 76px;overflow:hidden}
+.heroGrid{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center}
+.hero h1{font-size:clamp(3.3rem,7vw,6.3rem);line-height:.96;letter-spacing:-.075em;margin:17px 0 24px;max-width:760px}
+.hero h1 em{font-style:normal;color:var(--lime)}
+.hero p{font-size:1.12rem;color:var(--muted);max-width:560px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.heroVisual{position:relative;min-height:490px;border-radius:30px;overflow:hidden;background:linear-gradient(145deg,#344438,#111b15);box-shadow:var(--shadow)}
+.heroVisual img{width:100%;height:100%;min-height:490px;object-fit:cover;opacity:.76;display:block}
+.heroStamp{position:absolute;bottom:22px;left:22px;background:var(--lime);color:#17210e;border-radius:18px;padding:16px 19px;font-weight:900;max-width:230px;transform:rotate(-3deg)}
+.floating{position:absolute;right:18px;top:18px;background:#101512d9;color:white;border:1px solid #ffffff35;border-radius:16px;padding:12px 15px;font-size:.84rem}
+.trustline{display:flex;gap:20px;flex-wrap:wrap;margin-top:28px;color:var(--muted);font-size:.87rem}
+.trustline span:before{content:"✓";color:var(--lime);font-weight:900;margin-right:8px}
+.section{padding:78px 0}
+.sectionHead{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:30px}
+.section h2{font-size:clamp(2.2rem,4vw,3.7rem);letter-spacing:-.065em;line-height:1.02;margin:10px 0}
+.sectionHead p{max-width:430px;color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.25s transform,.25s border-color}
+.card:hover{transform:translateY(-6px);border-color:var(--muted)}
+.cardImg{height:220px;position:relative;overflow:hidden;background:var(--panel2)}
+.cardImg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.card:hover .cardImg img{transform:scale(1.05)}
+.num{position:absolute;top:14px;left:14px;background:#101512d9;color:#fff;border-radius:99px;padding:7px 11px;font-size:.75rem;font-weight:800}
+.cardBody{padding:23px}
+.tag{display:inline-block;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900;margin-bottom:9px}
+.power{color:var(--lime)}
+.heat{color:var(--orange)}
+.build{color:var(--blue)}
+.card h3{font-size:1.8rem;letter-spacing:-.055em;margin:0 0 7px}
+.card h4{font-size:1.03rem;margin:0 0 12px}
+.card p{color:var(--muted);font-size:.93rem;min-height:76px}
+.challenge{border-top:1px solid var(--line);padding-top:15px;margin-top:16px;font-size:.9rem}
+.challenge b{display:block;margin-bottom:4px}
+.cardFoot{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
+.price{font-size:1.35rem;font-weight:900}
+.textlink{font-weight:850;color:var(--lime)}
+.darkband{background:var(--panel);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:34px}
+.step{border-top:2px solid var(--lime);padding:17px 13px 0}
+.step strong{display:block;font-size:1.1rem}
+.step small{color:var(--lime);font-weight:800}
+.step p{font-size:.88rem;color:var(--muted)}
+.quizbox{background:var(--panel);border:1px solid var(--line);border-radius:28px;padding:clamp(22px,4vw,42px);display:grid;grid-template-columns:.72fr 1.28fr;gap:35px}
+.quizIntro h2{font-size:clamp(2.2rem,4vw,3.4rem)}
+.quizIntro p{color:var(--muted)}
+.quizMeta{font-size:.85rem;color:var(--muted)}
+.progress{height:7px;background:var(--panel2);border-radius:99px;overflow:hidden;margin:10px 0 26px}
+.progress span{display:block;height:100%;width:20%;background:var(--lime);transition:width .25s}
+.question{font-size:1.45rem;font-weight:850;letter-spacing:-.035em;margin-bottom:18px}
+.options{display:grid;gap:10px}
+.option{display:flex;align-items:center;gap:12px;text-align:left;width:100%;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:14px;padding:15px 16px;transition:.15s}
+.option:hover,.option.selected{border-color:var(--lime);background:var(--panel2)}
+.option .dot{width:19px;height:19px;border:1.5px solid var(--muted);border-radius:50%;flex:none}
+.option.selected .dot{border:6px solid var(--lime)}
+.quizControls{display:flex;justify-content:space-between;gap:12px;margin-top:23px}
+.quizResult{display:none}
+.resultCard{border:1px solid var(--line);border-radius:20px;padding:23px;background:var(--bg)}
+.resultCard h3{font-size:2rem;margin:4px 0}
+.resultCard p{color:var(--muted)}
+.resultActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.whyGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
+.why{padding:20px;background:var(--panel);border:1px solid var(--line);border-radius:18px}
+.why .icon{font-size:1.6rem}
+.why h3{font-size:1.03rem}
+.why p{font-size:.88rem;color:var(--muted)}
+.pricing{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pricePanel{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:28px}
+.bundle{background:var(--lime);color:#17210e;border-radius:24px;padding:30px;display:flex;flex-direction:column;justify-content:space-between}
+.bundle .btn{background:#17210e;color:white;align-self:flex-start}
+.bundle h3{font-size:2.4rem;letter-spacing:-.06em;margin:5px 0}
+.bundlePrice{font-size:3.2rem;font-weight:950;letter-spacing:-.07em}
+.priceRows{display:grid;gap:13px;margin-top:20px}
+.priceRow{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:11px}
+.faq{max-width:850px;margin:auto}
+.faq details{border-bottom:1px solid var(--line);padding:19px 0}
+.faq summary{font-weight:850;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px}
+.faq summary:after{content:"+";color:var(--lime);font-size:1.3rem}
+.faq details[open] summary:after{content:"−"}
+.faq details p{color:var(--muted);max-width:750px}
+.finalCta{background:var(--panel);border:1px solid var(--line);border-radius:30px;padding:clamp(28px,6vw,65px);text-align:center}
+.finalCta h2{font-size:clamp(2.5rem,5vw,4.7rem);max-width:850px;margin:12px auto;letter-spacing:-.07em}
+.finalCta p{color:var(--muted);max-width:600px;margin:0 auto}
+.footer{padding:35px 0;color:var(--muted);font-size:.85rem}
+.footerin{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:25px}
+.note{font-size:.78rem;color:var(--muted)}
+.mobileOnly{display:none}
+@media(max-width:900px){
+.heroGrid{grid-template-columns:1fr;gap:30px}
+.heroVisual,.heroVisual img{min-height:360px}
+.cards{grid-template-columns:1fr 1fr}
+.quizbox{grid-template-columns:1fr}
+.steps{grid-template-columns:repeat(3,1fr)}
+.whyGrid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:640px){
+.wrap{width:min(100% - 28px,1160px)}
+.navin{height:66px}
+.navlinks{display:none;position:absolute;top:66px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:18px 22px;flex-direction:column;align-items:flex-start}
+.navlinks.open{display:flex}
+.menuBtn{display:inline-block}
+.themebtn{padding:9px 11px}
+.hero{padding:54px 0 48px}
+.hero h1{font-size:3.5rem}
+.heroVisual,.heroVisual img{min-height:300px}
+.section{padding:58px 0}
+.sectionHead{display:block}
+.sectionHead p{margin-top:12px}
+.cards{grid-template-columns:1fr}
+.cardImg{height:210px}
+.steps{grid-template-columns:1fr 1fr}
+.whyGrid{grid-template-columns:1fr 1fr}
+.pricing{grid-template-columns:1fr}
+.quizbox{padding:22px}
+.question{font-size:1.25rem}
+.option{padding:13px}
+.mobileOnly{display:block}
+}
+@media(prefers-reduced-motion:reduce){
+*{scroll-behavior:auto!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap navin">
+    <a class="brand" href="#top" aria-label="NextSkill Academy home">next<span>skill</span><small style="font-size:.58em;letter-spacing:0;margin-left:5px">ACADEMY</small></a>
+    <nav class="navlinks" id="navlinks" aria-label="Main navigation">
+      <a href="#experiences">Experiences</a><a href="#how">How it works</a><a href="#quiz">Find your skill</a><a href="#pricing">Pricing</a>
+    </nav>
+    <div class="navactions"><button class="themebtn" id="themeToggle" aria-label="Toggle colour theme">☼ / ◐</button><button class="menuBtn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button><a class="btn" href="#quiz">Find your skill <span>↗</span></a></div>
+  </div>
+</header>
+<main id="top">
+<section class="hero">
+  <div class="wrap heroGrid">
+    <div>
+      <div class="eyebrow">Try a trade. Discover what's next.</div>
+      <h1>Your next career could start with <em>90 minutes.</em></h1>
+      <p>Ever wondered what it would be like to become an electrician, plumber or carpenter? Step into a real workshop, learn from a working tradesperson and try the skills for yourself.</p>
+      <div class="actions"><a class="btn" href="#quiz">Find your next skill <span>→</span></a><a class="btn secondary" href="#experiences">Explore experiences</a></div>
+      <div class="trustline"><span>No experience needed</span><span>All materials included</span><span>Small-group sessions</span></div>
+    </div>
+    <div class="heroVisual">
+      <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=85" alt="Adult learner working hands-on in a technical workshop" onerror="this.style.display='none'">
+      <div class="floating">REAL TOOLS · REAL PEOPLE · YOUR FIRST TRY</div>
+      <div class="heroStamp">Three trades.<br>One first step.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="experiences">
+  <div class="wrap">
+    <div class="sectionHead"><div><div class="eyebrow">Choose your experience</div><h2>Three ways to try<br>something different.</h2></div><p>Short, practical introductions to skills that help build, power and heat the places we live and work.</p></div>
+    <div class="cards">
+      <article class="card" id="power">
+        <div class="cardImg"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=900&q=85" alt="Electrician working with electrical components" loading="lazy"><span class="num">EXPERIENCE 01</span></div>
+        <div class="cardBody"><div class="tag power">Electrical & renewable energy</div><h3>POWER IT</h3><h4>Could you power the future?</h4><p>Explore the tools electricians use, discover how circuits work and connect traditional electrical skills with solar, batteries and electric vehicles.</p><div class="challenge"><b>Your challenge</b>Build and test a working low-voltage circuit.</div><div class="cardFoot"><span class="price">€45 <small style="font-size:.7rem;color:var(--muted);font-weight:500">/ 90 min</small></span><a class="textlink" href="#quiz" onclick="prefillQuiz('power')">I'm interested ↗</a></div></div>
+      </article>
+      <article class="card" id="heat">
+        <div class="cardImg"><img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=900&q=85" alt="Plumbing pipework and fittings" loading="lazy"><span class="num">EXPERIENCE 02</span></div>
+        <div class="cardBody"><div class="tag heat">Plumbing, heating & heat pumps</div><h3>HEAT IT</h3><h4>Can you heat the homes of tomorrow?</h4><p>Get hands-on with pipework, understand how heating systems connect and discover the technology changing how Irish homes are heated.</p><div class="challenge"><b>Your challenge</b>Assemble a simple demonstration pipework section.</div><div class="cardFoot"><span class="price">€45 <small style="font-size:.7rem;color:var(--muted);font-weight:500">/ 90 min</small></span><a class="textlink" href="#quiz" onclick="prefillQuiz('heat')">I'm interested ↗</a></div></div>
+      </article>
+      <article class="card" id="build">
+        <div class="cardImg"><img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=900&q=85" alt="Carpentry tools and woodworking in a workshop" loading="lazy"><span class="num">EXPERIENCE 03</span></div>
+        <div class="cardBody"><div class="tag build">Carpentry, joinery & construction</div><h3>BUILD IT</h3><h4>What could you create?</h4><p>Discover the tools and techniques behind woodworking, measure and mark timber, and make your first piece in a hands-on workshop.</p><div class="challenge"><b>Your challenge</b>Make a simple timber joint or small frame.</div><div class="cardFoot"><span class="price">€39 <small style="font-size:.7rem;color:var(--muted);font-weight:500">/ 90 min</small></span><a class="textlink" href="#quiz" onclick="prefillQuiz('build')">I'm interested ↗</a></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section darkband" id="how">
+  <div class="wrap">
+    <div class="eyebrow">A proper hands-on introduction</div><h2>90 minutes. Not 90 minutes<br>of sitting in a classroom.</h2>
+    <p style="color:var(--muted);max-width:650px">Every experience is led by an experienced tradesperson. You'll learn the basics, try a practical challenge and leave with a clearer idea of where the skill could take you.</p>
+    <div class="steps">
+      <div class="step"><small>00–10 MIN</small><strong>Welcome to the trade</strong><p>Meet your instructor and hear their career story.</p></div>
+      <div class="step"><small>10–25 MIN</small><strong>Meet the tools</strong><p>Explore the equipment, materials and safety basics.</p></div>
+      <div class="step"><small>25–70 MIN</small><strong>Your challenge</strong><p>Get involved in a supervised practical activity.</p></div>
+      <div class="step"><small>70–80 MIN</small><strong>What comes next?</strong><p>Explore training routes and career pathways.</p></div>
+      <div class="step"><small>80–90 MIN</small><strong>Ask anything</strong><p>Questions, advice and an open conversation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="quiz">
+  <div class="wrap">
+    <div class="quizbox">
+      <div class="quizIntro"><div class="eyebrow">Your next step starts here</div><h2>Find your next skill.</h2><p>Not sure which experience is right for you? Answer five quick questions and we'll suggest a place to start.</p><p class="quizMeta">5 questions · About 1 minute · No experience needed</p></div>
+      <div class="quizMain" id="quizMain">
+        <div class="quizMeta" id="quizCount">QUESTION 1 OF 5</div><div class="progress"><span id="progressFill"></span></div>
+        <div class="question" id="questionText">What sounds most interesting to you?</div>
+        <div class="options" id="options"></div>
+        <div class="quizControls"><button class="btn secondary" id="backBtn" disabled>← Back</button><button class="btn" id="nextBtn" disabled>Next question →</button></div>
+      </div>
+      <div class="quizResult" id="quizResult" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sectionHead"><div><div class="eyebrow">Why NextSkill?</div><h2>Come curious.<br>Leave with a direction.</h2></div><p>A welcoming first step into the world of practical skills. No pressure to commit to a course or career.</p></div>
+    <div class="whyGrid">
+      <div class="why"><div class="icon">🧑‍🔧</div><h3>Learn from the people who do it</h3><p>Meet working tradespeople and hear what the job is really like.</p></div>
+      <div class="why"><div class="icon">🛠️</div><h3>Try real tools and materials</h3><p>Get beyond the theory and take part in a practical challenge.</p></div>
+      <div class="why"><div class="icon">🙌</div><h3>Everyone gets involved</h3><p>Small-group learning designed to give everyone a go.</p></div>
+      <div class="why"><div class="icon">🌱</div><h3>Start from zero</h3><p>No previous experience or technical knowledge required.</p></div>
+      <div class="why"><div class="icon">🧭</div><h3>See what comes next</h3><p>Understand possible training, apprenticeship and career routes.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section darkband" id="pricing">
+  <div class="wrap">
+    <div class="sectionHead"><div><div class="eyebrow">Simple, upfront pricing</div><h2>One evening could<br>open a new door.</h2></div><p>Everything you need for the experience is included. Choose one trade or explore all three.</p></div>
+    <div class="pricing">
+      <div class="pricePanel"><h3>Choose one experience</h3><div class="priceRows"><div class="priceRow"><span>POWER IT · Electrical</span><b>€45</b></div><div class="priceRow"><span>HEAT IT · Plumbing & heating</span><b>€45</b></div><div class="priceRow"><span>BUILD IT · Carpentry</span><b>€39</b></div></div><p class="note">Each ticket includes a 90-minute guided experience, standard materials and equipment, a practical challenge and career-pathway information.</p><a class="btn secondary" href="#quiz">Find your experience</a></div>
+      <div class="bundle"><div><div class="eyebrow" style="color:#24380e">The full discovery</div><h3>Explore all three.</h3><p>Three sessions. Three trades. A broader view of what you might enjoy.</p><div class="bundlePrice">€109</div><p style="margin-top:-5px">Instead of €129 individually</p></div><a class="btn" href="#quiz">Choose your first session →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap faq"><div class="eyebrow">Good to know</div><h2>Questions, answered.</h2>
+    <details><summary>Do I need previous experience?</summary><p>No. These experiences are designed for complete beginners as well as people who have some practical experience and want to explore a new direction.</p></details>
+    <details><summary>What happens during the 90 minutes?</summary><p>You'll meet an experienced tradesperson, explore tools and materials, complete a supervised hands-on challenge and learn about possible training and career pathways.</p></details>
+    <details><summary>Are tools and materials included?</summary><p>Yes. Standard training equipment, materials and safety equipment required for the planned activity are included in the ticket.</p></details>
+    <details><summary>Is this a professional qualification?</summary><p>No. These are introductory taster experiences, not accredited training or professional qualifications. They are designed to help you explore a trade before deciding whether to pursue formal training.</p></details>
+    <details><summary>Can I book more than one experience?</summary><p>Absolutely. You can choose individual experiences or the proposed three-session discovery bundle.</p></details>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap"><div class="finalCta"><div class="eyebrow">POWER IT · HEAT IT · BUILD IT</div><h2>Three experiences. One opportunity to discover what's next.</h2><p>Try a trade, meet the people behind it and find out what you might be capable of.</p><div class="actions" style="justify-content:center"><a class="btn" href="#quiz">Find your next skill ↗</a><a class="btn secondary" href="#experiences">Explore all experiences</a></div></div></div>
+</section>
+</main>
+<footer class="footer"><div class="wrap footerin"><div><a class="brand" href="#top">next<span>skill</span></a><p>Try a trade. Discover what's next.</p></div><div>Introductory experiences only. Not a professional qualification.<br><span class="note">Proposed launch concept. Dates, locations and booking details to be confirmed.</span></div><div>© <span id="year"></span> NextSkill Academy</div></div></footer>
+
+<script>
+const questions=[
+ {q:"What sounds most interesting to you?",a:[["Understanding how electricity and technology work.","power"],["Working with pipes, water and heating systems.","heat"],["Making and building things with my hands.","build"]]},
+ {q:"Which activity would you enjoy most?",a:[["Connecting components and testing a circuit.","power"],["Assembling a pipework system.","heat"],["Measuring, cutting and joining timber.","build"]]},
+ {q:"What kind of problem-solving appeals to you?",a:[["Diagnosing why something electrical is not working.","power"],["Figuring out how water and heating systems connect.","heat"],["Working out how to construct something accurately.","build"]]},
+ {q:"What motivates you most?",a:[["Technology and renewable energy.","power"],["Sustainable homes and heating.","heat"],["Creativity and physical construction.","build"]]},
+ {q:"How would you describe your experience?",a:[["I'm a complete beginner.","power"],["I have some experience, but want to explore further.","heat"],["I have practical experience and want to discover a new direction.","build"]]}
+];
+
+const experiences={
+ power:{name:"POWER IT",category:"Electrical & renewable energy",headline:"Could you power the future?",price:"€45",challenge:"Build and test a working low-voltage circuit.",why:"Your answers suggest you're curious about technology, electrical systems and how things connect. POWER IT gives you a safe, practical introduction to circuits and the changing energy industry.",id:"power"},
+ heat:{name:"HEAT IT",category:"Plumbing, heating & heat pumps",headline:"Can you heat the homes of tomorrow?",price:"€45",challenge:"Assemble a simple demonstration pipework section.",why:"Your answers point towards practical systems, problem-solving and the way homes work. HEAT IT introduces plumbing, heating and the technology behind heat pumps.",id:"heat"},
+ build:{name:"BUILD IT",category:"Carpentry, joinery & construction",headline:"What could you create?",price:"€39",challenge:"Make a simple timber joint or small frame.",why:"Your answers suggest you enjoy making, measuring and creating tangible results. BUILD IT lets you try basic woodworking and discover the craft behind modern construction.",id:"build"}
+};
+
+let current=0,answers=Array(5).fill(null),prefill=null;
+const $=id=>document.getElementById(id);
+
+function renderQuestion(){
+ const item=questions[current];
+ $("quizCount").textContent=`QUESTION ${current+1} OF 5`;
+ $("progressFill").style.width=`${(current+1)*20}%`;
+ $("questionText").textContent=item.q;
+ $("options").innerHTML="";
+ item.a.forEach(([label,value],i)=>{
+  const b=document.createElement("button");
+  b.type="button";
+  b.className="option"+(answers[current]===value?" selected":"");
+  b.innerHTML=`<span class="dot"></span><span>${label}</span>`;
+  b.setAttribute("aria-pressed",answers[current]===value?"true":"false");
+  b.addEventListener("click",()=>{answers[current]=value;renderQuestion()});
+  $("options").appendChild(b)
+ });
+ $("backBtn").disabled=current===0;
+ $("nextBtn").disabled=!answers[current];
+ $("nextBtn").textContent=current===4?"See my recommendation →":"Next question →";
+}
+
+function finishQuiz(){
+ const scores={power:0,heat:0,build:0};
+ answers.forEach(a=>{if(a)scores[a]++});
+ const max=Math.max(...Object.values(scores));
+ const winners=Object.keys(scores).filter(k=>scores[k]===max);
+ $("quizMain").style.display="none";
+ $("quizResult").style.display="block";
+
+ if(winners.length>1){
+   $("quizResult").innerHTML=`<div class="eyebrow">Your results</div><h3>You're curious about more than one trade.</h3><p>Your answers were split across ${winners.map(k=>experiences[k].name).join(" and ")}. That's a good reason to explore both.</p><div class="resultActions">${winners.map(k=>`<a class="btn" href="#${k}">Explore ${experiences[k].name} ↗</a>`).join("")}</div><p class="note">You can also browse all three experiences below.</p>`;
+ }else{
+   const e=experiences[winners[0]];
+   $("quizResult").innerHTML=`<div class="eyebrow">Your strongest match</div><div class="resultCard"><div class="tag ${e.id}">${e.category}</div><h3>${e.name}</h3><h4>${e.headline}</h4><p>${e.why}</p><p><b>Your hands-on challenge:</b> ${e.challenge}</p><div class="cardFoot"><span class="price">${e.price} <small style="font-size:.7rem;color:var(--muted);font-weight:500">/ 90 min</small></span><span class="note">No experience needed</span></div></div><div class="resultActions"><a class="btn" href="#${e.id}">Explore this experience ↗</a><button class="btn secondary" id="otherResults">See the other experiences</button></div>`;
+   $("otherResults").addEventListener("click",()=>document.getElementById("experiences").scrollIntoView({behavior:"smooth"}));
+ }
+}
+
+$("nextBtn").addEventListener("click",()=>{
+ if(!answers[current])return;
+ if(current<4){current++;renderQuestion()}
+ else finishQuiz()
+});
+
+$("backBtn").addEventListener("click",()=>{
+ if(current>0){current--;renderQuestion()}
+});
+
+function prefillQuiz(key){
+ prefill=key;
+ answers=Array(5).fill(null);
+ answers[0]=key;
+ current=0;
+ renderQuestion()
+}
+
+window.prefillQuiz=prefillQuiz;
+
+$("themeToggle").addEventListener("click",()=>{
+ const light=document.documentElement.getAttribute("data-theme")==="light";
+ document.documentElement.setAttribute("data-theme",light?"dark":"light");
+ $("themeToggle").setAttribute("aria-label",light?"Switch to light theme":"Switch to dark theme")
+});
+
+$("menuBtn").addEventListener("click",()=>{
+ const open=$("navlinks").classList.toggle("open");
+ $("menuBtn").setAttribute("aria-expanded",String(open))
+});
+
+document.querySelectorAll("#navlinks a").forEach(a=>a.addEventListener("click",()=>{
+ $("navlinks").classList.remove("open");
+ $("menuBtn").setAttribute("aria-expanded","false")
+}));
+
+$("year").textContent=new Date().getFullYear();
+renderQuestion();
+</script>
+</body>
+</html>
